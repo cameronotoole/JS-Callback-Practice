@@ -16,18 +16,19 @@ function move(element) {
         element.style.bottom = `${y}px`;
 
         function moveCharacter() {
-            // z - index - no errors / logic makes sense ? not exactly doing exactly what it's supposed to?
-            const characterBounds = element.getBoundingClientRect()
-            const otherElements = document.querySelectorAll('img:not([src="assets/green-character/static.gif"])')
 
-            otherElements.forEach((otherElement) => {
-                const otherBounds = otherElement.getBoundingClientRect()
-                if (characterBounds.bottom > otherBounds.top) {
-                    element.style.zIndex = 0
-                } else {
-                    element.style.zIndex = 1
-                }
-            })
+            // z - index - no errors / logic makes sense ? not exactly doing exactly what it's supposed to?
+            // const characterBounds = element.getBoundingClientRect()
+            // const otherElements = document.querySelectorAll('img:not([src="assets/green-character/static.gif"])')
+
+            // otherElements.forEach((otherElement) => {
+            //     const otherBounds = otherElement.getBoundingClientRect()
+            //     if (characterBounds.bottom > otherBounds.top) {
+            //         element.style.zIndex = 0
+            //     } else {
+            //         element.style.zIndex = 1
+            //     }
+            // })
             //
 
             if (direction === 'west' && x > 0) {
