@@ -16,7 +16,7 @@ function move(element) {
         element.style.bottom = y + 'px'
 
         function moveCharacter() {
-            //z-index change half works?
+            //z-index -no errors/logic makes sense? not exactly doing what it's supposed to
             // const characterBounds = element.getBoundingClientRect()
             // const otherElements = document.querySelectorAll('img:not([src="assets/green-character/static.gif"])')
 
