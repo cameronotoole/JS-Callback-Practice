@@ -4,7 +4,6 @@ move(inventory).to(0, 0)
 const character = newImage('assets/green-character/static.gif')
 
 //4 separate 'if' statements not if/else-won't run after first condition is met //
-
 function onDirectionChange(direction) {
     if (direction === null) {
         character.src = 'assets/green-character/static.gif'
@@ -25,6 +24,9 @@ function onDirectionChange(direction) {
 
 move(character).withArrowKeys(100, 250, onDirectionChange)
 
+//bonus tree movement ?
+// const tree = (newImage('assets/tree.png'))
+// move(tree).withArrowKeys(200, 450) ?
 
 move(newImage('assets/tree.png')).to(200, 450)
 move(newImage('assets/pillar.png')).to(350, 250)

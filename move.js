@@ -1,6 +1,7 @@
 function move(element) {
     element.style.position = 'fixed'
 
+
     function moveToCoordinates(left, bottom) {
         element.style.left = left + 'px'
         element.style.bottom = bottom + 'px'
@@ -13,18 +14,32 @@ function move(element) {
 
         element.style.left = x + 'px'
         element.style.bottom = y + 'px'
-        function moveCharacter() {
 
-            if (direction === 'west') {
+        function moveCharacter() {
+            //z-index change half works?
+            // const characterBounds = element.getBoundingClientRect()
+            // const otherElements = document.querySelectorAll('img:not([src="assets/green-character/static.gif"])')
+
+            // otherElements.forEach((otherElement) => {
+            //     const otherBounds = otherElement.getBoundingClientRect()
+            //     if (characterBounds.bottom > otherBounds.top) {
+            //         element.style.zIndex = 0
+            //     } else {
+            //         element.style.zIndex = 1
+            //     }
+            // })
+
+
+            if (direction === 'west' && x > 0) {
                 x = x - 1
             }
-            if (direction === 'east') {
+            if (direction === 'east' && x < window.innerWidth - element.offsetWidth) {
                 x = x + 1
             }
-            if (direction === 'north') {
+            if (direction === 'north' && y < window.innerHeight - element.offsetHeight) {
                 y = y + 1
             }
-            if (direction === 'south') {
+            if (direction === 'south' && y > 0) {
                 y = y - 1
             }
             element.style.left = x + 'px'
@@ -48,12 +63,18 @@ function move(element) {
             if (e.key === 'ArrowDown') {
                 direction = 'south'
             }
-            callback(direction)
+
+            if (callback && typeof callback === 'function') {
+                callback(direction)
+            }
+
         })
 
         document.addEventListener('keyup', function (e) {
             direction = null
-            callback(direction)
+            if (callback && typeof callback === 'function') {
+                callback()
+            }
         })
     }
 
