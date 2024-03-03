@@ -1,5 +1,6 @@
 function move(element) {
     element.style.position = 'fixed'
+    // element.style.zIndex = 1;
 
 
     function moveToCoordinates(left, bottom) {
